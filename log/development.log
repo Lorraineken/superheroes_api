@@ -212,3 +212,64 @@ Processing by HerosController#show as */*
 Completed 200 OK in 1250ms (Views: 1167.6ms | ActiveRecord: 5.1ms | Allocations: 68582)
 
 
+Started GET "/powers/1" for 127.0.0.1 at 2023-03-27 12:23:29 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PowersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:9:in `show'
+Completed 200 OK in 82ms (Views: 0.7ms | ActiveRecord: 1.2ms | Allocations: 40717)
+
+
+Started GET "/powers" for 127.0.0.1 at 2023-03-27 12:23:35 +0300
+Processing by PowersController#index as */*
+  [1m[36mPower Load (0.4ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.4ms | Allocations: 979)
+
+
+Started GET "/1" for 127.0.0.1 at 2023-03-27 12:29:32 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/1"):
+  
+Started GET "/powers/1" for 127.0.0.1 at 2023-03-27 12:29:44 +0300
+Processing by PowersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:9:in `show'
+Completed 200 OK in 88ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 40735)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2023-03-27 12:32:07 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PowersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:9:in `show'
+Completed 200 OK in 85ms (Views: 1.4ms | ActiveRecord: 1.1ms | Allocations: 40717)
+
+
+Started PATCH "/powers/1" for 127.0.0.1 at 2023-03-27 12:33:50 +0300
+Processing by PowersController#update as */*
+  Parameters: {"description"=>"Can possess anything by taking a 2 minutes stare", "id"=>"1", "power"=>{"description"=>"Can possess anything by taking a 2 minutes stare"}}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:14:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x00007febdc74a8e0>, params: {"description"=>"Can possess anything by taking a 2 minutes stare", "controller"=>"powers", "action"=>"update", "id"=>"1", "power"=>{"description"=>"Can possess anything by taking a 2 minutes stare"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/powers_controller.rb:15:in `update'
+  [1m[36mPower Update (0.7ms)[0m  [1m[33mUPDATE "powers" SET "description" = ?, "updated_at" = ? WHERE "powers"."id" = ?[0m  [["description", "Can possess anything by taking a 2 minutes stare"], ["updated_at", "2023-03-27 09:33:50.790186"], ["id", 1]]
+  ↳ app/controllers/powers_controller.rb:15:in `update'
+  [1m[36mTRANSACTION (72.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/powers_controller.rb:15:in `update'
+Completed 200 OK in 95ms (Views: 0.4ms | ActiveRecord: 73.4ms | Allocations: 2587)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2023-03-27 12:34:12 +0300
+Processing by PowersController#show as */*
+  Parameters: {"description"=>"Can possess anything by taking a 2 minutes stare", "id"=>"1", "power"=>{"description"=>"Can possess anything by taking a 2 minutes stare"}}
+  [1m[36mPower Load (0.4ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:9:in `show'
+Completed 200 OK in 9ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 604)
+
+

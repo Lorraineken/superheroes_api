@@ -10,4 +10,6 @@ class HerosController < ApplicationController
     render json: hero, include: [:powers]
   end
 
+  
+
 end
