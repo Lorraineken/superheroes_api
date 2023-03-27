@@ -8,7 +8,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :hero_not_found
 
   def show 
     hero = Hero.find(params[:id])
-      render json: hero, include: [:powers] 
+      render json: hero, serializer: HeroShowSerializer
   end
 
   private 
