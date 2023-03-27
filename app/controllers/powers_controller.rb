@@ -27,11 +27,11 @@ class PowersController < ApplicationController
   end
 
   def power_record_missing 
-    render json: { "error": "Power not found"}
+    render json: { "error": "Power not found"}, status: :not_found
   end
 
   def validation_error 
-    render json:  {"errors": ["validation errors"]}
+    render json:  {"errors": ["validation errors"]}, status: :unprocessable_entity
   end
 
 end

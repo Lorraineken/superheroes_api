@@ -478,3 +478,12 @@ Processing by HeroPowersController#create as */*
 Completed 200 OK in 974ms (Views: 0.3ms | ActiveRecord: 2.7ms | Allocations: 431565)
 
 
+Started GET "/heros/123" for 127.0.0.1 at 2023-03-27 13:31:17 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HerosController#show as */*
+  Parameters: {"id"=>"123"}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 123], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:10:in `show'
+Completed 404 Not Found in 53ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 25881)
+
+

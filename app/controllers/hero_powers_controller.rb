@@ -13,7 +13,7 @@ class HeroPowersController < ApplicationController
    end
 
    def invalid_hero_powers 
-    render json:{ "errors": ["validation errors"]}
+    render json:{ "errors": ["validation errors"]}, status: :unprocessable_entity
    end
 
 end
