@@ -487,3 +487,12 @@ Processing by HerosController#show as */*
 Completed 404 Not Found in 53ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 25881)
 
 
+Started GET "/heros" for 127.0.0.1 at 2023-03-27 14:53:43 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HerosController#index as */*
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heros_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.94ms)
+Completed 200 OK in 73ms (Views: 34.5ms | ActiveRecord: 1.0ms | Allocations: 42523)
+
+
