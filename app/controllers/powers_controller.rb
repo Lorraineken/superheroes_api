@@ -16,6 +16,8 @@ class PowersController < ApplicationController
     render json: power
   end
 
+  
+
   private 
 
   def power_params 
