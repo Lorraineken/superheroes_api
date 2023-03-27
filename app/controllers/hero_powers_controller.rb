@@ -2,8 +2,9 @@ class HeroPowersController < ApplicationController
  rescue_from ActiveRecord::RecordInvalid, with: :invalid_hero_powers
 
   def create 
-    hero_power = HeroPower.create!(hp_params)
-    render json: hero_power
+    heropower = HeroPower.create!(hp_params)
+    hero = heropower.hero
+    render json: hero, serializer: CustomHeroShowSerializer
   end
 
   private

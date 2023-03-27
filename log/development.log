@@ -530,3 +530,162 @@ Processing by HerosController#show as */*
 Completed 200 OK in 200ms (Views: 122.8ms | ActiveRecord: 2.6ms | Allocations: 73000)
 
 
+Started GET "/powers" for 127.0.0.1 at 2023-03-27 15:09:17 +0300
+Processing by PowersController#index as */*
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.72ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms | Allocations: 1139)
+
+
+Started GET "/powers/2" for 127.0.0.1 at 2023-03-27 15:10:28 +0300
+Processing by PowersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:11:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 794)
+
+
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-27 15:16:39 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Weak", "power_id"=>2, "hero_id"=>4, "hero_power"=>{"strength"=>"Weak", "hero_id"=>4, "power_id"=>2}}
+[31mUnpermitted parameter: :hero_power. Context: { controller: HeroPowersController, action: create, request: #<ActionDispatch::Request:0x00007f301ca950d0>, params: {"strength"=>"Weak", "power_id"=>2, "hero_id"=>4, "controller"=>"hero_powers", "action"=>"create", "hero_power"=>{"strength"=>"Weak", "hero_id"=>4, "power_id"=>2}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/hero_powers_controller.rb:5:in `create'
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:5:in `create'
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:5:in `create'
+  [1m[36mHeroPower Create (0.4ms)[0m  [1m[32mINSERT INTO "hero_powers" ("strength", "hero_id", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Weak"], ["hero_id", 4], ["power_id", 2], ["created_at", "2023-03-27 12:16:39.913590"], ["updated_at", "2023-03-27 12:16:39.913590"]]
+  ↳ app/controllers/hero_powers_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (158.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/hero_powers_controller.rb:5:in `create'
+[active_model_serializers] Rendered HeroPowerSerializer with ActiveModelSerializers::Adapter::Attributes (10.05ms)
+Completed 500 Internal Server Error in 411ms (ActiveRecord: 162.1ms | Allocations: 83327)
+
+
+  
+NoMethodError (undefined method `heros' for #<HeroPower:0x00007f301ca1cc20>
+Did you mean?  hero
+               hero=):
+  
+app/controllers/hero_powers_controller.rb:6:in `create'
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-27 15:23:30 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/kupa/Development/code/phase_4/superheroes_api/app/controllers/hero_powers_controller.rb:6: syntax error, unexpected local variable or method, expecting `end'
+...json: heropower.hero serializer :HeroShowSerializer 
+...                     ^~~~~~~~~~
+):
+  
+app/controllers/hero_powers_controller.rb:6: syntax error, unexpected local variable or method, expecting `end'
+app/controllers/hero_powers_controller.rb:6: syntax error, unexpected local variable or method, expecting `end'
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-27 15:26:06 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Weak", "power_id"=>2, "hero_id"=>3, "hero_power"=>{"strength"=>"Weak", "hero_id"=>3, "power_id"=>2}}
+[31mUnpermitted parameter: :hero_power. Context: { controller: HeroPowersController, action: create, request: #<ActionDispatch::Request:0x00007fe9d4ab21b8>, params: {"strength"=>"Weak", "power_id"=>2, "hero_id"=>3, "controller"=>"hero_powers", "action"=>"create", "hero_power"=>{"strength"=>"Weak", "hero_id"=>3, "power_id"=>2}} }[0m
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:6:in `create'
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 135ms (Views: 16.1ms | ActiveRecord: 1.7ms | Allocations: 59313)
+
+
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-27 15:27:30 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Weak", "power_id"=>2, "hero_id"=>3, "hero_power"=>{"strength"=>"Weak", "hero_id"=>3, "power_id"=>2}}
+[31mUnpermitted parameter: :hero_power. Context: { controller: HeroPowersController, action: create, request: #<ActionDispatch::Request:0x00007fb128cd73d8>, params: {"strength"=>"Weak", "power_id"=>2, "hero_id"=>3, "controller"=>"hero_powers", "action"=>"create", "hero_power"=>{"strength"=>"Weak", "hero_id"=>3, "power_id"=>2}} }[0m
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:6:in `create'
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 131ms (Views: 17.2ms | ActiveRecord: 1.7ms | Allocations: 59319)
+
+
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-27 15:39:18 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/kupa/Development/code/phase_4/superheroes_api/app/controllers/hero_powers_controller.rb:7: syntax error, unexpected tLABEL, expecting `do' or '{' or '('
+    render json: hero include: :powers
+                      ^~~~~~~~
+):
+  
+app/controllers/hero_powers_controller.rb:7: syntax error, unexpected tLABEL, expecting `do' or '{' or '('
+app/controllers/hero_powers_controller.rb:7: syntax error, unexpected tLABEL, expecting `do' or '{' or '('
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-27 15:40:04 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Weak", "power_id"=>2, "hero_id"=>3, "hero_power"=>{"strength"=>"Weak", "hero_id"=>3, "power_id"=>2}}
+[31mUnpermitted parameter: :hero_power. Context: { controller: HeroPowersController, action: create, request: #<ActionDispatch::Request:0x00007fba68ab9300>, params: {"strength"=>"Weak", "power_id"=>2, "hero_id"=>3, "controller"=>"hero_powers", "action"=>"create", "hero_power"=>{"strength"=>"Weak", "hero_id"=>3, "power_id"=>2}} }[0m
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:6:in `create'
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.47ms)
+Completed 200 OK in 142ms (Views: 16.6ms | ActiveRecord: 1.9ms | Allocations: 59302)
+
+
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-27 15:40:22 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Weak", "power_id"=>2, "hero_id"=>3, "hero_power"=>{"strength"=>"Weak", "hero_id"=>3, "power_id"=>2}}
+[31mUnpermitted parameter: :hero_power. Context: { controller: HeroPowersController, action: create, request: #<ActionDispatch::Request:0x00007f7c3ccf9e90>, params: {"strength"=>"Weak", "power_id"=>2, "hero_id"=>3, "controller"=>"hero_powers", "action"=>"create", "hero_power"=>{"strength"=>"Weak", "hero_id"=>3, "power_id"=>2}} }[0m
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:6:in `create'
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.52ms)
+Completed 200 OK in 145ms (Views: 14.6ms | ActiveRecord: 2.2ms | Allocations: 59300)
+
+
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-27 15:43:40 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/kupa/Development/code/phase_4/superheroes_api/app/controllers/hero_powers_controller.rb:7: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+...r json: hero, each_serializer :HeroShowSerializer
+...                              ^
+):
+  
+app/controllers/hero_powers_controller.rb:7: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/hero_powers_controller.rb:7: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-27 15:47:37 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Weak", "power_id"=>2, "hero_id"=>3, "hero_power"=>{"strength"=>"Weak", "hero_id"=>3, "power_id"=>2}}
+[31mUnpermitted parameter: :hero_power. Context: { controller: HeroPowersController, action: create, request: #<ActionDispatch::Request:0x00007ff39caade98>, params: {"strength"=>"Weak", "power_id"=>2, "hero_id"=>3, "controller"=>"hero_powers", "action"=>"create", "hero_power"=>{"strength"=>"Weak", "hero_id"=>3, "power_id"=>2}} }[0m
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:6:in `create'
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.66ms)
+Completed 200 OK in 140ms (Views: 14.9ms | ActiveRecord: 2.0ms | Allocations: 59341)
+
+
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-27 15:51:27 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/kupa/Development/code/phase_4/superheroes_api/app/controllers/hero_powers_controller.rb:7: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+...render json: hero, serializer :CustomHeroShowSerializer
+...                              ^
+):
+  
+app/controllers/hero_powers_controller.rb:7: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/hero_powers_controller.rb:7: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-27 15:52:26 +0300
+  
+SyntaxError (/home/kupa/Development/code/phase_4/superheroes_api/app/controllers/hero_powers_controller.rb:7: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+...r json: hero, each_serializer :CustomHeroShowSerializer
+...                              ^
+):
+  
+app/controllers/hero_powers_controller.rb:7: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/hero_powers_controller.rb:7: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-27 15:53:46 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Weak", "power_id"=>2, "hero_id"=>3, "hero_power"=>{"strength"=>"Weak", "hero_id"=>3, "power_id"=>2}}
+[31mUnpermitted parameter: :hero_power. Context: { controller: HeroPowersController, action: create, request: #<ActionDispatch::Request:0x00007fbac4d19328>, params: {"strength"=>"Weak", "power_id"=>2, "hero_id"=>3, "controller"=>"hero_powers", "action"=>"create", "hero_power"=>{"strength"=>"Weak", "hero_id"=>3, "power_id"=>2}} }[0m
+  [1m[36mHero Load (0.4ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:6:in `create'
+[active_model_serializers]   [1m[36mPower Load (0.6ms)[0m  [1m[34mSELECT "powers".* FROM "powers" INNER JOIN "hero_powers" ON "powers"."id" = "hero_powers"."power_id" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 3]]
+[active_model_serializers]   ↳ app/controllers/hero_powers_controller.rb:7:in `create'
+[active_model_serializers] Rendered CustomHeroShowSerializer with ActiveModelSerializers::Adapter::Attributes (94.98ms)
+Completed 200 OK in 231ms (Views: 103.3ms | ActiveRecord: 4.0ms | Allocations: 83846)
+
+
