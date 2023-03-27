@@ -313,3 +313,68 @@ Completed 404 Not Found in 47ms (ActiveRecord: 1.4ms | Allocations: 25832)
 ActiveRecord::RecordNotFound (Couldn't find Hero with 'id'=123):
   
 app/controllers/heros_controller.rb:9:in `show'
+Started GET "/heros/123" for 127.0.0.1 at 2023-03-27 13:02:54 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HerosController#show as */*
+  Parameters: {"id"=>"123"}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 123], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:10:in `show'
+Completed 200 OK in 50ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 25881)
+
+
+Started GET "/powers/123" for 127.0.0.1 at 2023-03-27 13:04:15 +0300
+  
+ArgumentError (Need a handler. Pass the with: keyword argument or provide a block.):
+  
+app/controllers/powers_controller.rb:2:in `<class:PowersController>'
+app/controllers/powers_controller.rb:1:in `<top (required)>'
+Started GET "/powers/1" for 127.0.0.1 at 2023-03-27 13:04:41 +0300
+  
+ArgumentError (Need a handler. Pass the with: keyword argument or provide a block.):
+  
+app/controllers/powers_controller.rb:2:in `<class:PowersController>'
+app/controllers/powers_controller.rb:1:in `<top (required)>'
+Started GET "/powers" for 127.0.0.1 at 2023-03-27 13:05:55 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ArgumentError (Need a handler. Pass the with: keyword argument or provide a block.):
+  
+app/controllers/powers_controller.rb:2:in `<class:PowersController>'
+app/controllers/powers_controller.rb:1:in `<top (required)>'
+Started GET "/powers" for 127.0.0.1 at 2023-03-27 13:07:02 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PowersController#index as */*
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:6:in `index'
+Completed 200 OK in 69ms (Views: 27.6ms | ActiveRecord: 1.0ms | Allocations: 40301)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2023-03-27 13:07:07 +0300
+Processing by PowersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPower Load (0.4ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:10:in `show'
+Completed 200 OK in 17ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 1397)
+
+
+Started GET "/powers/123" for 127.0.0.1 at 2023-03-27 13:07:11 +0300
+Processing by PowersController#show as */*
+  Parameters: {"id"=>"123"}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 123], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:10:in `show'
+Completed 404 Not Found in 5ms (ActiveRecord: 0.3ms | Allocations: 516)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Power with 'id'=123):
+  
+app/controllers/powers_controller.rb:10:in `show'
+Started GET "/powers/123" for 127.0.0.1 at 2023-03-27 13:09:36 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PowersController#show as */*
+  Parameters: {"id"=>"123"}
+  [1m[36mPower Load (0.1ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 123], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:10:in `show'
+Completed 200 OK in 56ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 25969)
+
+

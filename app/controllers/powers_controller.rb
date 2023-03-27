@@ -1,4 +1,5 @@
 class PowersController < ApplicationController
+ rescue_from ActiveRecord::RecordNotFound, with: :power_record_missing
 
   def index 
     power = Power.all 
@@ -22,6 +23,10 @@ class PowersController < ApplicationController
 
   def power_params 
     params.permit(:name, :description)
+  end
+
+  def power_record_missing 
+    render json: { "error": "Power not found"}
   end
 
 end
