@@ -5,4 +5,9 @@ class HerosController < ApplicationController
     render json: hero
   end
 
+  def show 
+    hero = Hero.find(params[:id])
+    render json: hero, include: [:powers]
+  end
+
 end

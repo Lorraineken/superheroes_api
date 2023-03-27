@@ -192,3 +192,23 @@ Processing by HerosController#index as */*
 Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.2ms | Allocations: 1056)
 
 
+Started GET "/heros/1" for 127.0.0.1 at 2023-03-27 12:03:56 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HerosController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:9:in `show'
+Completed 200 OK in 87ms (Views: 1.1ms | ActiveRecord: 1.1ms | Allocations: 40629)
+
+
+Started GET "/heros/1" for 127.0.0.1 at 2023-03-27 12:05:13 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HerosController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:9:in `show'
+  [1m[36mPower Load (0.7ms)[0m  [1m[34mSELECT "powers".* FROM "powers" INNER JOIN "hero_powers" ON "powers"."id" = "hero_powers"."power_id" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 1]]
+  ↳ app/controllers/heros_controller.rb:10:in `show'
+Completed 200 OK in 1250ms (Views: 1167.6ms | ActiveRecord: 5.1ms | Allocations: 68582)
+
+
