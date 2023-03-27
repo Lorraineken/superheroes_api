@@ -6,6 +6,8 @@ It's is a server side application which contains heros, powers and a join table 
 
 The relationship of the models is shown on the ERD model below 
 
+  ![ERD](./screens/ERD.png?raw=true "ERD")
+
 
 The routes include :
 - GET /heroes
