@@ -1,6 +1,7 @@
 class PowersController < ApplicationController
  rescue_from ActiveRecord::RecordNotFound, with: :power_record_missing
-
+ rescue_from ActiveRecord::RecordInvalid, with: :validation_error
+ 
   def index 
     power = Power.all 
     render json: power
@@ -13,7 +14,7 @@ class PowersController < ApplicationController
 
   def update 
     power = Power.find(params[:id])
-    power.update(power_params)
+    power.update!(power_params)
     render json: power
   end
 
@@ -27,6 +28,10 @@ class PowersController < ApplicationController
 
   def power_record_missing 
     render json: { "error": "Power not found"}
+  end
+
+  def validation_error 
+    render json:  {"errors": ["validation errors"]}
   end
 
 end

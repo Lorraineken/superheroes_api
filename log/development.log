@@ -378,3 +378,68 @@ Processing by PowersController#show as */*
 Completed 200 OK in 56ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 25969)
 
 
+Started GET "/powers/1" for 127.0.0.1 at 2023-03-27 13:11:48 +0300
+Processing by PowersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPower Load (0.5ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:10:in `show'
+Completed 200 OK in 48ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 15278)
+
+
+Started PATCH "/powers/1" for 127.0.0.1 at 2023-03-27 13:12:26 +0300
+Processing by PowersController#update as */*
+  Parameters: {"description"=>"poss", "id"=>"1", "power"=>{"description"=>"poss"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:15:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x0000557546c350d0>, params: {"description"=>"poss", "controller"=>"powers", "action"=>"update", "id"=>"1", "power"=>{"description"=>"poss"}} }[0m
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 977)
+
+
+Started PATCH "/powers/1" for 127.0.0.1 at 2023-03-27 13:13:00 +0300
+Processing by PowersController#update as */*
+  Parameters: {"description"=>"possess anything by staring", "id"=>"1", "power"=>{"description"=>"possess anything by staring"}}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:15:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x00007f8e402233e8>, params: {"description"=>"possess anything by staring", "controller"=>"powers", "action"=>"update", "id"=>"1", "power"=>{"description"=>"possess anything by staring"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/powers_controller.rb:16:in `update'
+  [1m[36mPower Update (0.7ms)[0m  [1m[33mUPDATE "powers" SET "description" = ?, "updated_at" = ? WHERE "powers"."id" = ?[0m  [["description", "possess anything by staring"], ["updated_at", "2023-03-27 10:13:00.572596"], ["id", 1]]
+  ↳ app/controllers/powers_controller.rb:16:in `update'
+  [1m[36mTRANSACTION (87.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/powers_controller.rb:16:in `update'
+Completed 200 OK in 104ms (Views: 0.3ms | ActiveRecord: 88.2ms | Allocations: 2481)
+
+
+Started PATCH "/powers/1" for 127.0.0.1 at 2023-03-27 13:14:01 +0300
+Processing by PowersController#update as */*
+  Parameters: {"description"=>"poss", "id"=>"1", "power"=>{"description"=>"poss"}}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:15:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x00007f8e40347800>, params: {"description"=>"poss", "controller"=>"powers", "action"=>"update", "id"=>"1", "power"=>{"description"=>"poss"}} }[0m
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 868)
+
+
+Started PATCH "/powers/1" for 127.0.0.1 at 2023-03-27 13:15:23 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PowersController#update as */*
+  Parameters: {"description"=>"poss", "id"=>"1", "power"=>{"description"=>"poss"}}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:15:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x00007f10a4911318>, params: {"description"=>"poss", "controller"=>"powers", "action"=>"update", "id"=>"1", "power"=>{"description"=>"poss"}} }[0m
+Completed 422 Unprocessable Entity in 877ms (ActiveRecord: 1.2ms | Allocations: 392877)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Description is too short (minimum is 20 characters)):
+  
+app/controllers/powers_controller.rb:16:in `update'
+Started PATCH "/powers/1" for 127.0.0.1 at 2023-03-27 13:18:03 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PowersController#update as */*
+  Parameters: {"description"=>"poss", "id"=>"1", "power"=>{"description"=>"poss"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:16:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x00007f093c8da620>, params: {"description"=>"poss", "controller"=>"powers", "action"=>"update", "id"=>"1", "power"=>{"description"=>"poss"}} }[0m
+Completed 200 OK in 893ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 393340)
+
+
