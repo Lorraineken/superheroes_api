@@ -7,6 +7,27 @@ It's is a server side application which contains heros, powers and a join table 
 The relationship of the models is shown on the ERD model below 
 
 
+The routes include :
+- GET /heroes
+
+    ![index heroes](./screens/get_heros.png?raw=true "index heroes")
+
+- GET /heroes/:id
+
+    ![show heroes](./screens/get_heros_id.png?raw=true "show heroes")
+
+- GET /powers
+
+    ![index powers](./screens/get_powers.png?raw=true "index powers")
+
+- GET /powers/:id 
+
+    ![show powers](./screens/get_powers_id.png?raw=true "show powers")
+
+- PATCH /powers/:id
+- POST /hero_powers
+
+    ![post hero_powers](./screens/post_hero_powers.png?raw=true "post hero_powers")
    
 
 
